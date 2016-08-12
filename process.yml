@@ -1,0 +1,5 @@
+apps:
+  - script: index.js
+    name: Tvrbo MobX
+    instances: 2
+    exec_mode: cluster

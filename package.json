@@ -1,30 +1,18 @@
 {
-  "name": "TvrboReact",
+  "name": "TvrboMobX",
   "version": "1.0.0",
-  "description": "Right Side Coffee Roasters",
+  "description": "Tvrbo MobX",
   "main": "index.js",
   "scripts": {
-    "postinstall": "npm run media && NODE_ENV=production webpack -p --config webpack.prod.config.js",
-    "build": "npm run media && NODE_ENV=production webpack --progress --colors -p --config webpack.prod.config.js",
-    "start": "npm run media && NODE_ENV=production NODE_PATH=$NODE_PATH:./app node .",
-    "todo": "notes app || echo 'Install notes with npm install -g'",
-    "pm2:start": "npm run media && NODE_ENV=production NODE_PATH=$NODE_PATH:./app pm2 start index.js -a TVRBOREACT_NAME",
-    "pm2:restart": "npm run media && NODE_ENV=production NODE_PATH=$NODE_PATH:./app pm2 restart index.js -a TVRBOREACT_NAME",
-    "pm2:stop": "NODE_ENV=production NODE_PATH=$NODE_PATH:./app pm2 stop index.js -a TVRBOREACT_NAME",
-    "dev": "npm run media && webpack-dev-server --progress --colors & npm run dev:serve",
-    "dev:serve": "NODE_PATH=$NODE_PATH:./app nodemon --watch app/api --watch app/models --watch app/lib --watch app/reducers .",
-    "media": "if [ ! -d public ] ; then mkdir public ; fi;  cp -R ./app/media ./public",
-    "test": "./node_modules/mocha/bin/mocha --require ./app/tests/starter.js --require ./app/tests/helper.js ./app --recursive",
-    "test:watch": "npm run test -- --watch",
-    "po:extract": "gulp --gulpfile gulp.lang.js extract",
-    "po:compile": "gulp --gulpfile gulp.lang.js compile"
+    "postinstall": "make",
+    "start": "make run"
   },
   "engines": {
     "node": "6.3.1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/TvrboPro/TvrboReact"
+    "url": "https://github.com/TvrboPro/TvrboMobX"
   },
   "keywords": [],
   "author": "",
@@ -87,6 +75,7 @@
     "i18next-conv": "^3.0.3",
     "i18next-parser": "^0.10.0",
     "nodemon": "^1.10.0",
+    "open": "0.0.5",
     "react-hot-loader": "^1.3.0",
     "webpack-dev-server": "^1.14.1"
   }
