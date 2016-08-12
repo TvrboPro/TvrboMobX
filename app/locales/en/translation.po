@@ -5,10 +5,22 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2016-08-12T11:11:21.125Z\n"
-"PO-Revision-Date: 2016-08-12T11:11:21.125Z\n"
+"POT-Creation-Date: 2016-08-12T13:08:40.868Z\n"
+"PO-Revision-Date: 2016-08-12T13:08:40.868Z\n"
+
+msgid " content="
+msgstr ""
+
+msgid " type="
+msgstr ""
 
 msgid "About"
+msgstr ""
+
+msgid "Click to increment"
+msgstr ""
+
+msgid "Counter: "
 msgstr ""
 
 msgid "FAQ"
@@ -26,6 +38,9 @@ msgstr ""
 msgid "Home"
 msgstr ""
 
+msgid "Host"
+msgstr ""
+
 msgid "Not found"
 msgstr ""
 
@@ -36,4 +51,25 @@ msgid "The page your are looking for does not exist :("
 msgstr ""
 
 msgid "Your content here"
+msgstr ""
+
+msgid "app/locales"
+msgstr ""
+
+msgid "bootstrap/less/bootstrap.less"
+msgstr ""
+
+msgid "name lastName email phone company type requestedWholesale billing delivery"
+msgstr ""
+
+msgid "po2json"
+msgstr ""
+
+msgid "styles/master.scss"
+msgstr ""
+
+msgid "www"
+msgstr ""
+
+msgid "}>{t("
 msgstr ""
