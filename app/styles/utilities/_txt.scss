@@ -1,0 +1,110 @@
+//////////////////////////////////
+//////////////////////////////////
+//////////////////////////////////
+//////////////////////////////////       HOW TO:
+//////////////////////////////////       txt--{modifier}
+//////////////////////////////////        1. Webkit only for now
+//////////////////////////////////        2. Mixin 4 fine tunned txt truncation => @include truncate(WIDTH);
+//////////////////////////////////
+//////////////////////////////////
+
+
+
+
+
+
+
+
+.txt {
+
+  &--quote{
+    display: block;
+    margin:10px auto!important;
+  }
+
+  &--title{
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+
+
+    &--bold {
+        font-weight: bold;
+    }
+
+    &--center {
+        text-align: center;
+    }
+
+    &--left {
+        text-align: left;
+    }
+
+    &--right {
+        text-align: right;
+    }
+
+    &--justify {
+        text-align: justify;
+        text-justify: distribute;
+    }
+
+    &--uppercase {
+        text-transform: uppercase;
+    }
+
+    &--underline {
+        text-decoration: underline;
+    }
+
+    &--italic {
+        font-style: italic;
+    }
+    &--kern {
+        text-rendering: optimizeLegibility;
+        font-feature-settings: "kern" 1;
+        font-kerning: normal;
+    }
+
+    &--ellipsis {
+        max-width: 100%;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        white-space: nowrap !important;
+        word-wrap: normal !important;
+    }
+
+    &--break-word {
+        word-wrap: break-word !important;
+    }
+
+    &--clamp {
+        display: -webkit-box !important;
+        -webkit-line-clamp: 1 !important;
+        -webkit-box-orient: vertical !important;
+        white-space: normal;
+        // 1.
+    }
+
+    &--hyphenate {
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        -webkit-hyphens: auto;
+        -ms-hyphens: auto;
+        -moz-hyphens: auto;
+        hyphens: auto;
+    }
+}
+
+
+
+
+
+@mixin truncate($truncation-boundary){
+    max-width:$truncation-boundary;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    word-wrap: normal;
+    // 2
+}

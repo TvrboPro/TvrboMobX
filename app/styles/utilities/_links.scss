@@ -1,0 +1,47 @@
+//////////////////////////////////
+//////////////////////////////////
+//////////////////////////////////
+//////////////////////////////////       HOW TO: 
+//////////////////////////////////       @include hyperlinks(COLOR,COLOR,COLOR,COLOR,COLOR);
+//////////////////////////////////       
+//////////////////////////////////
+//////////////////////////////////
+//////////////////////////////////
+
+
+
+
+
+
+
+@mixin hyperlinks($link, $visit, $hover, $active, $focus) {
+    a {
+        color: $link;
+        text-decoration: none;
+
+        &:visited {
+            color: $visit;
+            text-decoration: none;
+        }
+
+        &:hover {
+            color: $hover;
+            outline: none;
+            text-decoration: none;
+        }
+
+        &:focus {
+            color: $focus;
+            outline: none;
+            text-decoration: none;
+        }
+
+        &:active {
+            color: $active;
+            outline: none;
+            text-decoration: none;
+        }
+    }
+}
+
+

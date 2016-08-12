@@ -1,0 +1,53 @@
+//////////////////////////////////
+//////////////////////////////////
+//////////////////////////////////
+//////////////////////////////////       HOW TO: 
+//////////////////////////////////        
+//////////////////////////////////        1. If w/h are unknown @include centerer(true, false);
+//////////////////////////////////        2. Support IE9 => http://caniuse.com/#feat=transforms2d
+//////////////////////////////////        3. If w/h are know @include centerknown(80px, 80px);
+//////////////////////////////////
+//////////////////////////////////
+
+
+
+
+
+
+@mixin centerer($x: true, $y: true) {
+    position: absolute; 
+    // 1
+
+    @if $x and $y {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    @else if $x {
+        left: 50%;
+        transform: translate(-50%, 0);
+    }
+    @else if $y {
+        top: 50%;
+        transform: translate(0, -50);
+    }
+    // 2
+}
+
+
+
+
+
+@mixin centerknown($wcalc, $hcalc) {
+
+    // 3
+    position: absolute;
+    top: calc(50% - #{.5*$hcalc});
+    left: calc(50% - #{.5*$wcalc});
+    width: $wcalc; 
+    height: $hcalc;
+
+}
+
+
+

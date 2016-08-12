@@ -1,0 +1,84 @@
+//////////////////////////////////
+//////////////////////////////////
+//////////////////////////////////
+//////////////////////////////////       HOW TO:
+//////////////////////////////////        1. *Testing* http://caniuse.com/#feat=css-hyphens
+//////////////////////////////////        2. Unitless line-height
+//////////////////////////////////       TO DO => SASS MAPS (Feel free to contribute)
+//////////////////////////////////       FURTHER READING => http://www.bigeng.io/how-we-use-sass-maps-for-design-tokens-and-developer-happiness
+//////////////////////////////////       FURTHER READING => https://mindtheshift.wordpress.com/2015/04/02/r-i-p-rem-viva-css-reference-pixel/
+//////////////////////////////////
+
+
+html{
+      hyphens: auto;
+    // 1
+}
+body{
+    line-height: 1.5;
+    // 2
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    margin: 0;
+    font-family: 'Roboto Mono';
+    font-weight: 400;
+    @include hyperlinks($vader,$vader,$vader,$vader,$vader);
+}
+
+.font{
+  &--willow{
+      // font-family: 'willowregular';
+  }
+
+  &--light{
+    font-weight: 300;
+  }
+  &--light-italic{
+    font-weight: 300;
+    font-style: italic;
+  }
+  &--normal{
+    font-weight: 400;
+  }
+  &--medium{
+    font-weight: 500;
+  }
+  &--bold{
+    font-weight: 700;
+  }
+
+  &--mamut{
+    font-size: 60px;
+
+    @media only screen and (max-width : 768px) {
+    font-size: 40px;
+
+      word-wrap: break-word !important;
+
+    }
+  }
+  &--hippo{
+    font-size: 40px;
+
+  }
+  &--lion{
+  font-size: 30px;
+  }
+  &--chiuaua{
+    font-size: 18px;
+
+  }
+  &--minichiuaua{
+    font-size: 14px;
+
+  }
+}
+
+
+p {
+  margin-bottom: 30px;
+
+  p:only-child{ margin-bottom: 10px;}
+  &.txt--title{
+    margin-bottom: 10px;
+  }
+}

@@ -1,0 +1,80 @@
+//////////////////////////////////
+//////////////////////////////////
+//////////////////////////////////
+//////////////////////////////////       HOW TO:
+//////////////////////////////////       padding--{modifier}
+//////////////////////////////////        1. Define local variables.
+//////////////////////////////////        2. w can be any unit
+//////////////////////////////////        3. Fallback
+//////////////////////////////////        4. Padding without need of a wrapper
+//////////////////////////////////        5. Responsive => padding: 1em calc(50% - #{$breakpoint / 2});
+//////////////////////////////////
+//////////////////////////////////
+
+
+$padding: 10px !default;
+$padding-half: $padding / 2;
+$padding-double: $padding * 2;
+// 1
+
+
+
+.spacing--bottom--high{
+  margin-bottom: 4rem!important;
+}
+
+.spacing--bottom--mega--high{
+  margin-bottom: 10rem!important;
+}
+
+.spacing--bottom--low{
+  margin-bottom:25px!important;
+}
+
+
+
+
+
+.padding {
+    padding: $padding;
+
+    &--half {
+        padding: $padding-half;
+    }
+
+    &--double {
+        padding: $padding-double;
+    }
+
+    &--vertical {
+        padding: $padding 0;
+    }
+
+    &--horizontal {
+        padding: 0 $padding;
+    }
+
+    &--top {
+        padding-top: $padding;
+    }
+    &--bottom {
+        padding-bottom: $padding;
+    }
+    &--right {
+        padding-right: $padding;
+    }
+
+    &--left {
+        padding-left: $padding;
+    }
+
+
+    &--calc{
+
+        $sectionwidth: 50%; // 2
+        padding: 1em; // 3
+        padding: 1em calc(50% - #{$sectionwidth / 2}); // 4
+        // 5
+
+    }
+}

@@ -1,0 +1,54 @@
+//////////////////////////////////
+//////////////////////////////////
+//////////////////////////////////
+//////////////////////////////////       HOW TO: 
+//////////////////////////////////       @include pad-ratio(16, 9,iframe);
+//////////////////////////////////        1. Force width of element even if it's empty
+//////////////////////////////////        2. Padding Bottom = (Image Height / Image Width) * 100%
+//////////////////////////////////
+//////////////////////////////////
+//////////////////////////////////
+
+
+
+
+.force-width{
+    min-height: 1px;
+    // 1 
+}
+
+
+
+
+@mixin pad-ratio($x, $y, $selector: img) {
+    position: relative;
+    padding: 0 0 percentage($y / $x) 0;
+    height: 0;
+
+    #{$selector} {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+
+
+
+
+// 2
+
+.grumpy-image-wrapper {
+    width: 90%;
+    height: 0;
+    padding-bottom: 66.67%;
+    border: 2px solid white;
+    position: relative;
+}
+.grumpy-image {
+    width: 100%;
+    position: absolute;
+}
+

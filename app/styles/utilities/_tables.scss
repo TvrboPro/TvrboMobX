@@ -1,0 +1,51 @@
+//////////////////////////////////
+//////////////////////////////////
+//////////////////////////////////
+//////////////////////////////////       HOW TO:
+//////////////////////////////////       .t--row > .t--col .t--col ...n
+//////////////////////////////////        1. ungrid.css (97 bytes minified)
+//////////////////////////////////        2. Change markup order of els by applying table properties
+//////////////////////////////////
+//////////////////////////////////
+//////////////////////////////////
+
+
+@media (min-width: 30em) {
+    .t--row {
+        width: 100%;
+        display: table;
+        table-layout: fixed;
+    }
+
+    .t--col {
+        display: table-cell;
+    }
+
+  // 1
+}
+
+
+
+
+//2
+
+/*
+  .random-parent{
+    display: table;
+    table-layout: fixed;
+  }
+  .random-child-goes-header {
+    display: table-caption;
+    // could go footer with caption-side: bottom;
+  }
+  .random-child-goes-footer {
+    display: table-footer-group;
+  }
+  .random-child-goes-footer span {
+    display: table-cell;
+    width: 50%;
+
+  }
+
+
+ */

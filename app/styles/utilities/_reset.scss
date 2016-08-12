@@ -1,0 +1,124 @@
+//////////////////////////////////
+//////////////////////////////////       HOW TO: 
+//////////////////////////////////      
+//////////////////////////////////        1. Switch to a friendlier box model
+//////////////////////////////////        2. Prevent iOS and IE text size adjust after device orientation change,
+//////////////////////////////////        without disabling user zoom.
+//////////////////////////////////        3. Prevent modern browsers from displaying `audio` without controls.
+//////////////////////////////////        3. Remove excess height in iOS 5 devices.
+//////////////////////////////////        4. Correct `block` display for HTML5 element IE8-IE11
+//////////////////////////////////        5. Correct `inline-block` display not defined in IE 8/9.
+//////////////////////////////////        6. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
+//////////////////////////////////        7. Remove border when inside `a` element in IE 8/9/10.
+//////////////////////////////////        8. Correct overflow not hidden in IE 9/10/11.
+//////////////////////////////////        9. Address inconsistent and variable font size in all browsers.
+//////////////////////////////////        10. Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
+//////////////////////////////////        11. Avoid the adjustment of fonts on iOS devices.
+//////////////////////////////////        12. Show the overflow in Edge and IE 
+//////////////////////////////////        13. Remove the gray background on active links in IE 10  
+//////////////////////////////////        14. Remove gaps in links underline in iOS 8+ and Safari 8+ 
+//////////////////////////////////        15. Remove the outline when hovering in all browsers 
+//////////////////////////////////
+
+
+
+
+html {
+     box-sizing: border-box; // 1.
+
+    -ms-text-size-adjust: 100%; // 2 
+    -webkit-text-size-adjust: 100%; // 2 
+}
+
+*,
+::before,
+::after {
+  box-sizing: inherit;
+}
+
+::before,
+::after {
+  text-decoration: inherit; 
+  vertical-align: inherit;
+}
+
+
+* {
+  background-repeat: no-repeat; 
+  padding: 0; 
+  margin: 0;
+}
+
+
+
+iframe, img, svg {
+    vertical-align: middle;
+}
+
+audio:not([controls]) { 
+    display: none; 
+    height: 0;
+    // 3 
+}
+
+article, aside, details,summary, figcaption, figure,
+footer, header, hgroup, main, menu, nav, section {
+    display: block;
+    // 4
+}
+
+audio,
+canvas,
+progress,
+video {
+    display: inline-block; // 5
+    vertical-align: baseline; // 6
+}
+
+img {
+    border: 0;
+    // 7
+}
+
+svg:not(:root) {
+    overflow: hidden;
+    // 8
+}
+
+small {
+    font-size: 80%;
+    // 9
+}
+
+strong {
+    font-weight: bold;
+    // 10
+}
+
+
+
+@media screen and (max-width: 640px) {
+    * {
+        -webkit-text-size-adjust: none;
+        -ms-text-size-adjust: none;
+        // 11
+    }
+}
+
+
+
+
+hr {
+  overflow: visible; // 12
+}
+
+a {
+  background-color: transparent; // 13
+  -webkit-text-decoration-skip: objects; // 14
+}
+
+a:active,
+a:hover {
+  outline-width: 0; // 15 
+}
+

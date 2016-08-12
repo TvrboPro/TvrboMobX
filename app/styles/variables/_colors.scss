@@ -1,0 +1,52 @@
+//////////////////////////////////
+//////////////////////////////////       TO DO => SASS MAPS (Feel free to contribute)
+//////////////////////////////////       FURTHER READING => http://www.bigeng.io/how-we-use-sass-maps-for-design-tokens-and-developer-happiness
+//////////////////////////////////
+
+
+
+
+
+$vader: #000;
+$kylo:#281b0e;  // negre softer
+
+$rey:#fddfbb; // desert
+$leia: #e6e7e8; // gris
+$checkout-grey:rgb(155, 155, 156);
+
+$luke: #fff;
+
+$poe:rgb(237,28,36); // red
+$poe-op:rgba(237,28,36,.8);
+
+$r2d2:rgb(0,174,239); // blue
+$r2d2-op:rgba(0,174,239,.3);
+
+$c3po:rgb(255,242,0); // yellow
+$c3po-op:rgba(255,242,0,.8);
+
+$bb8:rgb(248,149,32); // orange
+$bb8-op:rgba(248,149,32,.3);
+
+$yoda:rgb(21,169,177); // green
+$yoda-op:rgba(21,169,177,.7);
+$yoda-op-full:rgba(21,169,177,.2);
+
+
+$chewie:rgb(46,49,146); // purple
+$chewie-op:rgba(46,49,146,.3);
+
+$boba:rgb(235,161,129); // skin
+$boba-op:rgba(235,161,129,.8);
+
+
+$color-brand: rebeccapurple !default;
+$gradient:linear-gradient(#eee,#ddd);
+
+.bg--poe{
+  background: $poe;
+  color:$luke;
+}
+.col--leia{
+    color:$leia;
+}
