@@ -18,7 +18,7 @@ info:
 	@echo "  $$ make stop         Stop the app server (pm2)"
 	@echo "  $$ make restart      Stop and start the app server (pm2)"
 	@echo
-	@echo "  $$ make install      Install the NPM packages
+	@echo "  $$ make install      Install the NPM packages"
 	@echo "  $$ make info         What you are reading"
 	@echo
 
