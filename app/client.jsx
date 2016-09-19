@@ -15,7 +15,6 @@ import { rehydrate } from 'state.client';
 // STYLES
 import 'styles/master.scss';
 
-
 function restoreLocalState(state){
   // restore your stored state in the local storage
 }
