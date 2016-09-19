@@ -16,7 +16,11 @@ info:
 	@echo
 	@echo "  $$ make start        Start the app server (pm2)"
 	@echo "  $$ make stop         Stop the app server (pm2)"
+	@echo "  $$ make reload       Restart the app server with no service disruption (pm2)"
 	@echo "  $$ make restart      Stop and start the app server (pm2)"
+	@echo
+	@echo "  $$ make todo"
+	@echo "  $$ make security"
 	@echo
 	@echo "  $$ make install      Install the NPM packages"
 	@echo "  $$ make info         What you are reading"
@@ -90,9 +94,6 @@ po-extract:
 po-compile:
 	gulp --gulpfile gulp.lang.js compile
 
-todo:
-	@notes app || echo 'Install notes with npm install -g'
-
 ####################################
 ## SERVER TARGETS
 
@@ -108,6 +109,21 @@ start:
 stop:
 	pm2 stop process.yml
 
+reload:
+	pm2 reload process.yml
+
 restart:
 	@make stop
 	@make start
+
+####################################
+## TOOLS
+
+todo:
+	@notes api lib models push  test|| echo 'Install notes with npm install -g'
+
+depcheck:
+	depcheck
+
+security:
+	snyk wizard

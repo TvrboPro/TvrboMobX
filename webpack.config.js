@@ -25,7 +25,7 @@ module.exports = {
                 test: /\.jsx?$/,
                 exclude: /node_modules/,
                 loaders: [
-                    'react-hot', 
+                    'react-hot',
                     'babel'  // parameters are in .babelrc
                 ]
             },
@@ -37,10 +37,6 @@ module.exports = {
                     'postcss',
                     'sass?outputStyle=expanded'
                 ]
-            },
-            {
-                test: /\.less$/i,
-                loader: "style!css!postcss!less"
             },
             {
                 test: /\.(jpe?g|png|gif|svg)$/i,

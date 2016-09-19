@@ -23,7 +23,7 @@ gulp.task('jsParse', function(){
       .pipe(i18next({
           locales: config.SUPPORTED_LANGUAGES.map(lang => lang.code),
           functions: ['t'],
-          attributes: ['data-i18n', 'i18nKey'],
+          attributes: ['i18nKey', 'data-i18n'],
           keySeparator: '^^^^^',
           namespaceSeparator: '~~~~~',
           output: path.resolve(__dirname, 'app', 'locales')

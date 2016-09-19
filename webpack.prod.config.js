@@ -2,9 +2,7 @@ var path = require('path');
 var autoprefixer = require('autoprefixer');
 var webpack = require('webpack');
 var ExtractTextPlugin = require("extract-text-webpack-plugin"); // Independent CSS file
-var modernizr = require('modernizr-webpack-plugin');
 
-var extractLess = new ExtractTextPlugin('bundle-less.css');
 var extractSass = new ExtractTextPlugin('bundle-sass.css');
 
 module.exports = {
@@ -27,10 +25,6 @@ module.exports = {
                 loader: 'babel'  // parameters are in .babelrc
             },
             // STYLES
-            {
-                test: /\.less$/i,
-                loader: extractLess.extract(['css','postcss','less'])
-            },
             {
                 test: /\.scss$/,
                 loader: extractSass.extract(['css','postcss','sass'])
@@ -66,16 +60,7 @@ module.exports = {
         'process.env.NODE_ENV': '"production"',
         'NODE_ENV': '"production"'
       }),
-      extractLess,
       extractSass,
-      new modernizr({
-        'feature-detects': [
-          'svg',
-          'css/flexbox',
-          'css/backgroundsizecover'
-        ],
-        htmlWebpackPlugin: false
-      }),
       new webpack.optimize.DedupePlugin(),
       new webpack.optimize.OccurenceOrderPlugin()
     ],

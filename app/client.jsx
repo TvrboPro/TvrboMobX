@@ -6,14 +6,13 @@ import browserHistory from 'react-router/lib/browserHistory';
 import routes from 'routes';
 import { Provider } from 'mobx-react';
 import i18n from 'i18next';
-import LanguageDetector from 'i18next-browser-languagedetector';
+// import LanguageDetector from 'i18next-browser-languagedetector';
 import I18nextProvider from 'react-i18next/dist/commonjs/I18nextProvider';
 import locales from './locales';
 
 import { rehydrate } from 'state.client';
 
 // STYLES
-import 'bootstrap/less/bootstrap.less';
 import 'styles/master.scss';
 
 
@@ -26,8 +25,6 @@ function restoreLocalState(state){
 function initialRender(){
 
   const state = rehydrate(window.__INITIAL_STATE__);
-
-  // TODO: UNIFIED BEHAVIOR WITH SERVER
 
   var urlHasLanguage = false;
   for(let i = 0; i < langConfig.SUPPORTED_LANGUAGES.length; i++) {
@@ -45,8 +42,16 @@ function initialRender(){
   }
 
   if(!urlHasLanguage) {
-    i18n.use(LanguageDetector)
-    .init({
+    // i18n.use(LanguageDetector)
+    // .init({
+    //   fallbackLng: false,
+    //   returnEmptyString: false,
+    //   keySeparator: false,
+    //   nsSeparator: false,
+    //   resources: locales
+    // });
+    i18n.init({
+      lng: state.main.lang,  // unified behavior with server
       fallbackLng: false,
       returnEmptyString: false,
       keySeparator: false,
