@@ -5,22 +5,43 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1)\n"
-"POT-Creation-Date: 2016-08-12T13:08:40.868Z\n"
-"PO-Revision-Date: 2016-08-12T13:08:40.868Z\n"
-
-msgid " content="
-msgstr ""
-
-msgid " type="
-msgstr ""
+"POT-Creation-Date: 2016-09-19T19:08:23.480Z\n"
+"PO-Revision-Date: 2016-09-19T19:08:23.480Z\n"
 
 msgid "About"
+msgstr ""
+
+msgid "Before you continue, you need to active your account"
+msgstr ""
+
+msgid "Bienvenido a Right Side Coffee"
 msgstr ""
 
 msgid "Click to increment"
 msgstr ""
 
+msgid "Click to show an alert"
+msgstr ""
+
+msgid "Could not complete the request"
+msgstr ""
+
+msgid "Could not create the account"
+msgstr ""
+
+msgid "Could not load the user"
+msgstr ""
+
+msgid "Could not retrieve the data"
+msgstr ""
+
+msgid "Could not retrieve the products"
+msgstr ""
+
 msgid "Counter: "
+msgstr ""
+
+msgid "Enter an email to continue"
 msgstr ""
 
 msgid "FAQ"
@@ -38,38 +59,76 @@ msgstr ""
 msgid "Home"
 msgstr ""
 
-msgid "Host"
+msgid "Invalid parameters"
 msgstr ""
 
 msgid "Not found"
 msgstr ""
 
+msgid "Para activar tu cuenta, haz click en"
+msgstr ""
+
+msgid "Para activar tu cuenta, visita el siguiente enlace en tu navegador:"
+msgstr ""
+
+msgid ""
+"Si no funciona, copia el siguiente texto en la barra de dirección de tu "
+"navegador:"
+msgstr ""
+
 msgid "Some rights might eventually be reserved. Or not."
+msgstr ""
+
+msgid "The email or the password are not valid"
 msgstr ""
 
 msgid "The page your are looking for does not exist :("
 msgstr ""
 
+msgid "The password is not valid"
+msgstr ""
+
+msgid "The request can not be completed"
+msgstr ""
+
+msgid "The user does not exist"
+msgstr ""
+
+msgid "The validation is not correct"
+msgstr ""
+
+msgid "This account has already been activated"
+msgstr ""
+
+msgid "This is a warning"
+msgstr ""
+
+msgid "Unable to change the password"
+msgstr ""
+
+msgid "Unable to complete the activation"
+msgstr ""
+
+msgid "Unable to complete the request"
+msgstr ""
+
+msgid "Unable to verify the account"
+msgstr ""
+
+msgid "Welcome"
+msgstr ""
+
+msgid "You already have an active account"
+msgstr ""
+
 msgid "Your content here"
 msgstr ""
 
-msgid "app/locales"
+msgid "Your data could not be updated"
 msgstr ""
 
-msgid "bootstrap/less/bootstrap.less"
+msgid "confirm"
 msgstr ""
 
-msgid "name lastName email phone company type requestedWholesale billing delivery"
-msgstr ""
-
-msgid "po2json"
-msgstr ""
-
-msgid "styles/master.scss"
-msgstr ""
-
-msgid "www"
-msgstr ""
-
-msgid "}>{t("
+msgid "este enlace"
 msgstr ""

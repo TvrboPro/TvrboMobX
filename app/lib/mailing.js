@@ -14,13 +14,13 @@ export function sendValidationEmail(recipientEmail, userId, validationToken, lan
 	// DETECT LANGUAGE
 	switch(lang){
 		case langConfig.DEFAULT_LANGUAGE:
-			URL = `${config.SERVER_URL}/confirmar/${userId}/${validationToken}`;
+			URL = `${config.SERVER_URL}/confirm/${userId}/${validationToken}`;
 			break;
 		default:
-			URL = `${config.SERVER_URL}/${lang}/${t('confirmar')}/${userId}/${validationToken}`;
+			URL = `${config.SERVER_URL}/${lang}/${t('confirm')}/${userId}/${validationToken}`;
 	}
 
-	title = t('Bienvenido a Right Side Coffee');
+	title = t('Welcome');
 
 	htmlContent = `<html><head><style> body { font-family: monospace; }</style></head><body>
 	<p>${t('Bienvenido a Right Side Coffee')},</p>

@@ -27,27 +27,27 @@ function getAccount(req, res){
 
 	User.findById(req.cookies.userId).select('name lastName email').exec()
 	.then(function(user){
-		if(!user) return res.status(404).send({error: t('El usuario no existe')});
+		if(!user) return res.status(404).send({error: t('The user does not exist')});
 		res.send(user);
 	})
 	.catch(function(err){
-		res.status(500).send({error: t('No se ha podido cargar el usuario'), err: err});
+		res.status(500).send({error: t('Could not load the user'), err: err});
 	});
 }
 
 function loginUser(req, res){
 	const t = message => gettextFromRequest(message, req);
 
-	if(!req.body.email || !req.body.password) return res.status(404).send({error: t("El email o la contraseña no son válidos")});
+	if(!req.body.email || !req.body.password) return res.status(404).send({error: t("The email or the password are not valid")});
 
 	User.findOne({email: req.body.email}).lean().exec()
 	.then(function(user){
 		if(!user)
-			return res.status(404).send({error: t("El email o la contraseña no son válidos")});
+			return res.status(404).send({error: t("The email or the password are not valid")});
 		else if(user.validationToken)
-			return res.status(406).send({error: t("Antes de continuar, debes completar la activación de tu cuenta")});
+			return res.status(406).send({error: t("Before you continue, you need to active your account")});
 		else if(user.password != digestPwd(req.body.password))
-			res.status(404).send({error: t("El email o la contraseña no son válidos")});
+			res.status(404).send({error: t("The email or the password are not valid")});
 		else {
 			res.cookie('userId', user._id, { httpOnly: true, secure: !config.DEBUG });
 			res.send({
@@ -59,7 +59,7 @@ function loginUser(req, res){
 		}
 	})
 	.catch(function(err){
-		return res.status(500).send({error: t('No se ha podido cargar el usuario'), err: err});
+		return res.status(500).send({error: t('Could not retrieve the data'), err: err});
 	});
 }
 
@@ -71,7 +71,7 @@ function logout(req, res){
 function signUp(req, res){
 	const t = message => gettextFromRequest(message, req);
 
-	if(!req.body.email) return res.status(406).send({error: t("Introduce un email para continuar")});
+	if(!req.body.email) return res.status(406).send({error: t("Enter an email to continue")});
 
 	User.findOne({email: req.body.email}).exec()
 	.then(function(user){
@@ -95,20 +95,20 @@ function signUp(req, res){
 		});
 	})
 	.catch(function(err){
-		if(err == 'already') return res.status(406).send({error: t("Ya tienes una cuenta activa en Right Side Coffee")});
-		return res.status(500).send({error: t('No se ha podido crear la cuenta'), err: err});
+		if(err == 'already') return res.status(406).send({error: t("You already have an active account")});
+		return res.status(500).send({error: t('Could not create the account'), err: err});
 	});
 }
 
 function confirmUser(req, res){
 	const t = message => gettextFromRequest(message, req);
 
-	if(!req.body.userId || !req.body.code) return res.status(406).send({error: t("Ha ocurrido un error con la petición")});
+	if(!req.body.userId || !req.body.code) return res.status(406).send({error: t("Could not complete the request")});
 
 	User.findById(req.body.userId).lean().exec()
 	.then(function(user){
 		if(!user) {
-			return res.status(404).send({error: t("El usuario no existe")});
+			return res.status(404).send({error: t("The user does not exist")});
 		}
 		// JUST CHECK THAT IT IS OK
 		// Registration will be completed when the password is set
@@ -119,21 +119,21 @@ function confirmUser(req, res){
 			});
 		}
 		else if(user.validationToken && req.body.code != user.validationToken)
-			res.status(406).send({error: t("La validación no es correcta")});
+			res.status(406).send({error: t("The validation is not correct")});
 		else if(!user.validationToken)
-			res.status(406).send({error: t("Esta cuenta ya ha sido activada")});
+			res.status(406).send({error: t("This account has already been activated")});
 		else
-			res.status(406).send({error: t("Ha ocurrido un error con la validación")});
+			res.status(406).send({error: t("Unable to complete the activation")});
 	})
 	.catch(function(err){
-		return res.status(500).send({error: t('No se ha podido verificar la cuenta'), err: err});
+		return res.status(500).send({error: t('Unable to verify the account'), err: err});
 	});
 }
 
 function updateUser(req, res){
 	const t = message => gettextFromRequest(message, req);
 
-	if(!req.params.id) return res.status(404).send({error: t("El usuario no existe")});
+	if(!req.params.id) return res.status(404).send({error: t("The user does not exist")});
 	var updates = {};
 	updates.company = req.body.company;
 
@@ -143,30 +143,30 @@ function updateUser(req, res){
 
 	User.findByIdAndUpdate(req.params.id, updates).exec()
 	.then(function(user){
-		if(!user) return res.status(404).send({error: t("El usuario no existe")});
+		if(!user) return res.status(404).send({error: t("The user does not exist")});
 		res.send('');
 	})
 	.catch(function(err){
-		return res.status(500).send({error: t('No se han podido actualizar los datos'), err: err});
+		return res.status(500).send({error: t('Your data could not be updated'), err: err});
 	});
 }
 
 function setPassword(req, res){
 	const t = message => gettextFromRequest(message, req);
 
-	if(!req.params.id) return res.status(404).send({error: t("El usuario no existe")});
-	else if(!req.body.password) return res.status(406).send({error: t("Los parámetros no son válidos")});
+	if(!req.params.id) return res.status(404).send({error: t("The user does not exist")});
+	else if(!req.body.password) return res.status(406).send({error: t("Invalid parameters")});
 
 	User.findById(req.params.id).exec()
 	.then(function(user){
 		if(!user)
-			return res.status(404).send({error: t("El usuario no existe")});
+			return res.status(404).send({error: t("The user does not exist")});
 		else if(user.password) {
 			// TODO?  CHANGE PASSWORD
 			if(!req.body.oldPassword)
-				return res.status(406).send({error: t("Los parámetros no son válidos")});
+				return res.status(406).send({error: t("Invalid parameters")});
 			else if(digestPwd(req.body.oldPassword) != user.password)
-				return res.status(406).send({error: t("La contraseña es inválida")});
+				return res.status(406).send({error: t("The password is not valid")});
 
 			return User.findByIdAndUpdate(user._id, {$unset: {validationToken: ""}, password: digestPwd(req.body.password), lastSeen: new Date()}).exec()
 			.then(function(){
@@ -183,7 +183,7 @@ function setPassword(req, res){
 			// FIRST PASSWORD SET
 
 			if(req.body.code != user.validationToken)
-				return res.status(406).send({error: t("La validación no es correcta")});
+				return res.status(406).send({error: t("The validation is not correct")});
 
 			return User.findByIdAndUpdate(user._id, {$unset: {validationToken: ""}, password: digestPwd(req.body.password), lastSeen: new Date()}).exec()
 			.then(function(){
@@ -197,10 +197,10 @@ function setPassword(req, res){
 			});
 		}
 		else
-			res.status(404).send({error: t("Ha ocurrido un error con la petición")});
+			res.status(404).send({error: t("Unable to complete the request")});
 	})
 	.catch(function(err){
-		return res.status(500).send({error: t('No se ha podido cambiar la contraseña'), err: err});
+		return res.status(500).send({error: t('Unable to change the password'), err: err});
 	});
 }
 
@@ -208,11 +208,11 @@ function removeAccount(req, res){
 	const t = message => gettextFromRequest(message, req);
 
 	if(!req.params.id || !req.cookies.userId || req.params.id != req.cookies.userId)
-		return res.status(401).send({error: t("No se puede completar la acción")});
+		return res.status(401).send({error: t("The request can not be completed")});
 
 	User.findById(req.params.id).lean().exec()
 	.then(user => {
-		if(!user) return res.status(404).send({error: t("El usuario no existe")});
+		if(!user) return res.status(404).send({error: t("The user does not exist")});
 
 		return User.findByIdAndRemove(req.params.id).lean().exec()
 		.then(() => res.send({}) );
