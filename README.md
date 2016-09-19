@@ -13,13 +13,11 @@ TvrboReact is a boilerplate that features the state of the art technologies from
 * **NodeJS**
 * **ExpressJS**
 * **ES6** Javascript (Babel)
-* **Sass** and **Less**
+* **Sass**
 * **Autoprefixer**
-* **React Bootstrap** - The most popular front-end framework, rebuilt for React
-* **Modernizr**
 * **Mongoose**
 * **nconf**
-* **Server-side rendering**
+* **Universal (Server-side) rendering**
 * **PM2**
 
 ## Getting Started
