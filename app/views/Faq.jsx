@@ -2,6 +2,7 @@ import React from 'react';
 import { Flex, Box } from 'reflexbox';
 import { translate } from 'react-i18next';
 
+@translate()
 class Faq extends React.Component {
   static propTypes = {
     t: React.PropTypes.func
@@ -29,4 +30,4 @@ class Faq extends React.Component {
   }
 }
 
-module.exports = translate()(Faq);
+module.exports = Faq;

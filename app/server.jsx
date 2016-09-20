@@ -41,6 +41,17 @@ if(!config.DEBUG) {
                   "       Make sure you build the app before you run the server with \"npm run build\"\n");
 }
 
+// LOCALIZATION
+i18n.init({
+  fallbackLng: false,
+  returnEmptyString: false,
+  keySeparator: false,
+  nsSeparator: false,
+  resources: locales
+}, function(err) {
+  if(err) console.error("i18n init ERROR:", err);
+});
+
 // SERVER LOGIC
 var app = express();
 
@@ -76,17 +87,6 @@ app.use(serveStatic(path.join(__dirname, '..', 'public')));
 
 app.use(cookieParser());
 app.use(apiRouter);
-
-// LOCALIZATION
-i18n.init({
-  fallbackLng: false,
-  returnEmptyString: false,
-  keySeparator: false,
-  nsSeparator: false,
-  resources: locales
-}, function(err) {
-  if(err) console.error("i18n init ERROR:", err);
-});
 
 // RENDER THE MAIN PAGE
 
