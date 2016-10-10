@@ -12,7 +12,7 @@ info:
 	@echo
 	@echo "  $$ make              Compile JS/Jade files into 'public'"
 	@echo "  $$ make dev          Compile, watch and hot reload"
-	@echo "  $$ make run          Build and start the server for production"
+	@echo "  $$ make run          Start the server for production"
 	@echo
 	@echo "  $$ make start        Start the app server (pm2)"
 	@echo "  $$ make stop         Stop the app server (pm2)"
@@ -97,7 +97,7 @@ po-compile:
 ####################################
 ## SERVER TARGETS
 
-run: build
+run:
 	@echo
 	@echo "# Starting server"
 	NODE_ENV='production' NODE_PATH=$NODE_PATH:./app MYAPP_DEBUG= node .

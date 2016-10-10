@@ -1,5 +1,11 @@
 'use strict';
-require("babel-core/register");
+
+// Override .babelrc
+require("babel-register")({
+  presets: ["node6", "react", "stage-1"],
+  plugins: ["transform-decorators-legacy"]
+});
+
 
 var config = require('config.js');
 var mongoose = require('mongoose');

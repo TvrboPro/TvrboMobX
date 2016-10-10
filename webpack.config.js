@@ -26,7 +26,7 @@ module.exports = {
                 exclude: /node_modules/,
                 loaders: [
                     'react-hot',
-                    'babel'  // parameters are in .babelrc
+                    'babel?presets[]=es2015&presets[]=react&presets[]=stage-1&plugins[]=transform-decorators-legacy&compact=true'
                 ]
             },
             {
